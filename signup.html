@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register Form</title>
+    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link rel="stylesheet" href="./login/css/signup.css" />
+  </head>
+  <body>
+    <div class="login_form_container">
+      <div class="login_form">
+        <h2>Register</h2>
+        <div class="input_group">
+          <i class="fa fa-user"></i>
+          <input
+            type="text"
+            placeholder="Username"
+            class="input_text"
+            autocomplete="off"
+          />
+        </div>
+        <div class="input_group">
+          <i class="fa fa-unlock-alt"></i>
+          <input
+            type="password"
+            placeholder="Password"
+            class="input_text"
+            autocomplete="off"
+          />
+        </div>
+        <div class="input_group">
+          <i class="fa fa-unlock-alt"></i>
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            class="input_text"
+            autocomplete="off"
+          />
+        </div>
+        <div class="button_group" id="register_button">
+          <div class="button_group" id="login_button">
+            <a>Register</a>
+          </div>
+        </div>
+        <div id="successMessage" style="display: none;">
+          <p>Registration successful!</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Lấy các trường nhập liệu và nút đăng ký
+      var usernameInput = document.querySelector('input[placeholder="Username"]');
+      var passwordInput = document.querySelector('input[placeholder="Password"]');
+      var confirmPasswordInput = document.querySelector('input[placeholder="Confirm Password"]');
+      var registerButton = document.querySelector('#register_button a');
+      var successMessage = document.getElementById('successMessage');
+
+      // Đặt sự kiện khi nút đăng ký được nhấp
+      registerButton.addEventListener('click', function() {
+        // Kiểm tra xem mật khẩu và xác nhận mật khẩu có khớp nhau
+        if (passwordInput.value === confirmPasswordInput.value) {
+          // Nếu khớp, hiển thị thông báo đăng ký thành công và ẩn nút đăng ký
+          successMessage.style.display = 'block';
+          registerButton.style.display = 'none';
+        } else {
+          // Nếu không khớp, thông báo lỗi
+          alert('Passwords do not match. Please try again.');
+        }
+      });
+    </script>
+  </body>
+</html>
